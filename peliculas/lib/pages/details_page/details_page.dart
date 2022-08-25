@@ -5,13 +5,15 @@ class DetailsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final String movie =
-        ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
+    final String movie = ModalRoute.of(context)?.settings.arguments.toString() ?? 'no-movie';
     return Scaffold(
       body: CustomScrollView(
         physics: const BouncingScrollPhysics(),
         slivers: [
           _CustomAppBar(),
+          SliverList(
+            delegate: SliverChildListDelegate([const _PosterAndtitle()]),
+          ),
         ],
       ),
     );
@@ -43,6 +45,31 @@ class _CustomAppBar extends StatelessWidget {
           image: NetworkImage('https://via.placeholder.com/500x300'),
           fit: BoxFit.cover,
         ),
+      ),
+    );
+  }
+}
+
+class _PosterAndtitle extends StatelessWidget {
+  const _PosterAndtitle({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        children: [
+          ClipRRect(
+            borderRadius: BorderRadius.circular(20),
+            child: const FadeInImage(
+              placeholder: AssetImage('assets/images/no-image.jpg'),
+              image: NetworkImage('https://via.placeholder.com/200x300'),
+              height: 150,
+            ),
+          ),
+          const SizedBox(width: 20)
+        ],
       ),
     );
   }
