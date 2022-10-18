@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:peliculas/widgets/widgets.dart';
 
 class DetailsPage extends StatelessWidget {
   const DetailsPage({Key? key}) : super(key: key);
@@ -17,6 +18,7 @@ class DetailsPage extends StatelessWidget {
               const _Overview(),
               const _Overview(),
               const _Overview(),
+              const CastingCards(),
             ]),
           ),
         ],
@@ -39,6 +41,7 @@ class _CustomAppBar extends StatelessWidget {
           width: double.infinity,
           alignment: AlignmentDirectional.bottomCenter,
           color: Colors.black12,
+          padding: const EdgeInsets.only(bottom: 10),
           child: const Text(
             'movie.title',
             style: TextStyle(fontSize: 16),
