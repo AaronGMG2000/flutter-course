@@ -17,7 +17,8 @@ class NowPlayingModel {
   int totalPages;
   int totalResults;
 
-  factory NowPlayingModel.fromJson(String str) => NowPlayingModel.fromMap(json.decode(str));
+  factory NowPlayingModel.fromJson(String str) =>
+      NowPlayingModel.fromMap(json.decode(str));
 
   factory NowPlayingModel.fromMap(Map<String, dynamic> json) => NowPlayingModel(
         dates: Dates.fromMap(json["dates"]),

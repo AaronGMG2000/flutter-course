@@ -1,9 +1,7 @@
-import 'dart:convert';
-
 import 'package:peliculas/models/movie_model.dart';
 
-class PopularModel {
-  PopularModel({
+class SearchModel {
+  SearchModel({
     required this.page,
     required this.results,
     required this.totalPages,
@@ -15,10 +13,7 @@ class PopularModel {
   int totalPages;
   int totalResults;
 
-  factory PopularModel.fromJson(String str) =>
-      PopularModel.fromMap(json.decode(str));
-
-  factory PopularModel.fromMap(Map<String, dynamic> json) => PopularModel(
+  factory SearchModel.fromMap(Map<String, dynamic> json) => SearchModel(
         page: json["page"],
         results: List<Movie>.from(json["results"].map((x) => Movie.fromMap(x))),
         totalPages: json["total_pages"],

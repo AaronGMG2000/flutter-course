@@ -56,8 +56,10 @@ class ApiManager {
         break;
     }
 
-    if (response.statusCode == HttpStatus.ok || response.statusCode == HttpStatus.created) {
-      return ServiceResponse.success(response.statusCode, response.reasonPhrase, json.decode(response.body));
+    if (response.statusCode == HttpStatus.ok ||
+        response.statusCode == HttpStatus.created) {
+      return ServiceResponse.success(response.statusCode, response.reasonPhrase,
+          json.decode(response.body));
     } else {
       return ServiceResponse.error(response.statusCode, response.reasonPhrase);
     }

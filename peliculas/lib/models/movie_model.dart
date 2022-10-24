@@ -32,12 +32,20 @@ class Movie {
   bool video;
   double voteAverage;
   int voteCount;
-
+  String? heroId;
   get fullPosterImg {
     if (posterPath == null) {
       return 'https://via.placeholder.com/300x400';
     } else {
       return 'https://image.tmdb.org/t/p/w500/$posterPath';
+    }
+  }
+
+  get fullBackdropPath {
+    if (backdropPath == null) {
+      return 'https://via.placeholder.com/300x400';
+    } else {
+      return 'https://image.tmdb.org/t/p/w500/$backdropPath';
     }
   }
 
