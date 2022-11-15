@@ -1,0 +1,97 @@
+{
+    // Place your snippets for dart here. Each snippet is defined under a snippet name and has a prefix, body and
+    // description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+    // $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the
+    // same ids are connected.
+    // Example:
+    // "Print to console": {
+    // 	"prefix": "log",
+    // 	"body": [
+    // 		"console.log('$1');",
+    // 		"$2"
+    // 	],
+    // 	"description": "Log output to console"
+    // }
+    "generate bloc": {
+        "prefix": "generate bloc",
+        "body": [
+            "BlocProvider(",
+            "\t  create: (context) => $1Bloc(),",
+            "\t  child: BlocListener<$1Bloc, $1State>(",
+            "\t\tlistener: (context, state) {",
+            "\t\t  // TODO: implement listener",
+            "\t\t},",
+            "\t\tchild: BlocBuilder<$1Bloc, $1State>(",
+            "\t\t  builder: (context, state) {",
+            "\t\t\treturn $2;",
+            "\t\t  },",
+            "\t\t),",
+            "\t  ),",
+            "\t)"
+        ]
+    },
+    "Rectángulo Widget": {
+        "prefix": "rectangulo",
+        "body": [
+            "class Rectangulo extends StatelessWidget {",
+            "    @override",
+            "    Widget build(BuildContext context) {",
+            "    return Container(",
+            "       width: 70,",
+            "       height: 70,",
+            "       decoration: BoxDecoration(",
+            "         color: Colors.blue",
+            "       ),",
+            "     );",
+            "   }",
+            "}"
+        ],
+        "description": "Log output to console"
+    },
+
+    "Flutter Page": {
+        "prefix": "fl-page",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "",
+            "",
+            "class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {",
+            "",
+            "  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({super.key});",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return const Scaffold(",
+            "      body: Center(",
+            "        child: Text('Hola Mundo'),",
+            "     ),",
+            "   );",
+            "  }",
+            "}"
+        ],
+        "description": "Crea una página de flutter fácilmente"
+    },
+
+    "Flutter Screen": {
+        "prefix": "fl-screen",
+        "body": [
+            "import 'package:flutter/material.dart';",
+            "",
+            "",
+            "class ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g} extends StatelessWidget {",
+            "",
+            "  const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/g}({super.key});",
+            "",
+            "  @override",
+            "  Widget build(BuildContext context) {",
+            "    return const Scaffold(",
+            "      body: Center(",
+            "        child: Text('Hola Mundo'),",
+            "     ),",
+            "   );",
+            "  }",
+            "}"
+        ],
+        "description": "Crea una página/screen de flutter fácilmente"
+    }
+}
