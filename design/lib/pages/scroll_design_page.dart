@@ -3,22 +3,24 @@ import 'package:flutter/material.dart';
 class ScrollDesignPage extends StatelessWidget {
   const ScrollDesignPage({super.key});
 
+  static const boxDecoration = BoxDecoration(
+    gradient: LinearGradient(
+      begin: Alignment.topCenter,
+      end: Alignment.bottomCenter,
+      stops: [0.5, 0.5],
+      colors: [
+        Color(0xff5EE8C5),
+        Color(0xff30BAD6),
+      ],
+    ),
+  );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        decoration: const BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            stops: [0.5, 0.5],
-            colors: [
-              Color(0xff5EE8C5),
-              Color(0xff30BAD6),
-            ],
-          ),
-        ),
+        decoration: boxDecoration,
         child: PageView(
+          physics: const BouncingScrollPhysics(),
           scrollDirection: Axis.vertical,
           children: const [
             Page1(),
