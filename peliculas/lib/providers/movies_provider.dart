@@ -3,7 +3,6 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:peliculas/helpers/debouncer.dart';
-import 'package:peliculas/models/credits_model/cast.dart';
 import 'package:peliculas/models/credits_model/credits_model.dart';
 import 'package:peliculas/models/movie_model.dart';
 import 'package:peliculas/models/now_playing_model.dart';
@@ -12,6 +11,8 @@ import 'package:peliculas/models/response_model.dart';
 import 'package:peliculas/models/search_model.dart';
 import 'package:peliculas/providers/api_manager.dart';
 import 'package:peliculas/utils/app_type.dart';
+
+import '../models/cast.dart';
 
 class MoviesProvider extends ChangeNotifier {
   final String _apiKey = 'f55ca9de0c2d8a4ebde2ba492194fe7b';
@@ -25,8 +26,10 @@ class MoviesProvider extends ChangeNotifier {
 
   final debouncer = Debouncer(duration: const Duration(milliseconds: 500));
 
-  final StreamController<List<Movie>> _suggestionStreamController = StreamController.broadcast();
-  Stream<List<Movie>> get suggestionStream => _suggestionStreamController.stream;
+  final StreamController<List<Movie>> _suggestionStreamController =
+      StreamController.broadcast();
+  Stream<List<Movie>> get suggestionStream =>
+      _suggestionStreamController.stream;
 
   MoviesProvider() {
     getOnDisplayMovies();
@@ -65,7 +68,10 @@ class MoviesProvider extends ChangeNotifier {
     );
     if (response.code == HttpStatus.ok) {
       final nowPlayingResponse = PopularModel.fromMap(response.data);
-      onDisplayPopularMovies = [...onDisplayPopularMovies, ...nowPlayingResponse.results];
+      onDisplayPopularMovies = [
+        ...onDisplayPopularMovies,
+        ...nowPlayingResponse.results
+      ];
     }
     notifyListeners();
   }
@@ -116,6 +122,7 @@ class MoviesProvider extends ChangeNotifier {
     final timer = Timer.periodic(const Duration(milliseconds: 300), (_) {
       debouncer.value = searchTerm;
     });
-    Future.delayed(const Duration(milliseconds: 301)).then((_) => timer.cancel());
+    Future.delayed(const Duration(milliseconds: 301))
+        .then((_) => timer.cancel());
   }
 }

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:peliculas/models/credits_model/cast.dart';
 import 'package:peliculas/providers/providers.dart';
 import 'package:provider/provider.dart';
+
+import '../models/cast.dart';
 
 class CastingCards extends StatelessWidget {
   final int movieId;

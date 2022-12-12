@@ -1,0 +1,11 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (SM A536E)",
+            "program": "lib/main.dart",
+            "deviceId": "R5CT218BEAY",
+            "request": "launch",
+            "type": "dart"
+        }
+    ]
+}

@@ -33,10 +33,12 @@ class MovieSearchDelegate extends SearchDelegate {
   Widget buildSuggestions(BuildContext context) {
     if (query.isEmpty) {
       return const Center(
-        child: Icon(Icons.movie_creation_outlined, color: Colors.black38, size: 150),
+        child: Icon(Icons.movie_creation_outlined,
+            color: Colors.black38, size: 150),
       );
     }
-    final MoviesProvider moviesProvider = Provider.of<MoviesProvider>(context, listen: false);
+    final MoviesProvider moviesProvider =
+        Provider.of<MoviesProvider>(context, listen: false);
 
     moviesProvider.getSuggestionsByQuery(query);
 
@@ -56,7 +58,8 @@ class MovieSearchDelegate extends SearchDelegate {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(5),
                       child: FadeInImage(
-                        placeholder: const AssetImage('assets/images/no-image.jpg'),
+                        placeholder:
+                            const AssetImage('assets/images/no-image.jpg'),
                         image: NetworkImage(movies[index].fullPosterImg),
                         fit: BoxFit.contain,
                       ),
@@ -65,7 +68,8 @@ class MovieSearchDelegate extends SearchDelegate {
                   title: Text(movies[index].title),
                   subtitle: Text(movies[index].originalTitle),
                   onTap: () {
-                    Navigator.pushNamed(context, 'details', arguments: movies[index]);
+                    Navigator.pushNamed(context, 'details',
+                        arguments: movies[index]);
                   },
                 );
               },

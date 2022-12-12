@@ -1,6 +1,5 @@
+import 'package:peliculas/models/cast.dart';
 import 'package:peliculas/models/credits_model/crew.dart';
-
-import 'cast.dart';
 
 class CreditsModel {
   int? id;
@@ -11,7 +10,11 @@ class CreditsModel {
 
   factory CreditsModel.fromJson(Map<String, dynamic> json) => CreditsModel(
         id: json['id'] as int?,
-        cast: (json['cast'] as List<dynamic>?)?.map((e) => Cast.fromJson(e as Map<String, dynamic>)).toList(),
-        crew: (json['crew'] as List<dynamic>?)?.map((e) => Crew.fromJson(e as Map<String, dynamic>)).toList(),
+        cast: (json['cast'] as List<dynamic>?)
+            ?.map((e) => Cast.fromJson(e as Map<String, dynamic>))
+            .toList(),
+        crew: (json['crew'] as List<dynamic>?)
+            ?.map((e) => Crew.fromJson(e as Map<String, dynamic>))
+            .toList(),
       );
 }
